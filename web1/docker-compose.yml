@@ -1,0 +1,25 @@
+web1tomcata:
+ build: ./tomcat
+ expose:
+  - 8080
+
+web1tomcatb:
+ build: ./tomcat
+ expose:
+  - 8080
+
+web1tomcatc:
+ build: ./tomcat
+ expose:
+  - 8080
+
+web1niginx:
+ build: ./nginx
+ links: 
+  - web1tomcata 
+  - web1tomcatb 
+  - web1tomcatc 
+ ports: 
+  - "80:80" 
+ expose: 
+  - "80" 
